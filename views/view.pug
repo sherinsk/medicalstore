@@ -1,0 +1,12 @@
+extends layout
+
+block content
+ .p-4.mt-2
+  h4.text-center.mt-3
+    b VIEW MEDICINE
+  p.mt-3(style='text-align: center;') NAME : #{data.name}
+  p.mt-3(style='text-align: center;') CATEGORY : #{data.category}
+      .col-4.offset-4
+       .d-grid.gap-2
+        a.btn.btn-warning(type='button' href='/user/dashboard') BACK TO HOME
+

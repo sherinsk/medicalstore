@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .table-responsive
+    table.table.table-striped
+      thead
+        tr
+          th Medicine Name
+          th Category
+          th.text-center Actions
+      tbody
+        each item in table
+          tr
+            td=item.name
+            td=item.category
+            td.text-center
+              .btn-group
+                a.btn.btn-warning(href='/user/dashboard/edit/'+item._id) Edit
+                a.btn.btn-danger(data-bs-toggle='modal' data-bs-target=`#exampleModal-${item._id}`) Delete
+                a.btn.btn-success(href='/user/dashboard/view/'+item._id) View
+
+  //- Modal for Confirming Delete
+  each item in table
+    .modal.fade(id=`exampleModal-${item._id}`, tabindex='-1', aria-labelledby=`exampleModalLabel-${item._id}`, aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            h5.modal-title(id=`exampleModalLabel-${item._id}`) Confirm Delete
+            button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close')
+          .modal-body Are you sure you want to delete #{item.name}?
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-bs-dismiss='modal') Close
+            a.btn.btn-danger(onclick='deleteitem()' dataid=item._id) Delete

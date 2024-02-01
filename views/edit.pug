@@ -1,0 +1,19 @@
+extends layout
+
+block content
+ .row.p-4.pb-5
+  form(action='/user/dashboard/editmedicine/'+data._id method='POST')
+    .col-12
+      h4
+        b edit existing stock
+      input.form-control.mt-3(type='text' name='name' placeholder='Name of the Medicine' value=data.name)
+    .col-12
+      input.form-control.mt-3(type='text' name='category' placeholder='Category' value=data.category)
+    .row.mt-4
+      .col-6
+        .d-grid.gap-2
+         button.btn.btn-success(type='submit') Confirm Changes
+      .col-6
+        .d-grid.gap-2
+         a.btn.btn-danger(href='/user/dashboard') Back to Home
+

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+  table.table.table-striped
+              thead
+                tr
+                  th Medicine Name
+                  th Category
+                  th.text-center Actions
+              tbody
+              each item in results
+               tr
+                td=item.name
+                td=item.category
+                td
+                 a.mr-auto.btn.btn-warning(href='/user/dashboard/edit'+item._id) Edit
+                 | 
+                 a.ml-auto.btn.btn-danger(href='/user/dashboard/delete'+item._id) Delete
