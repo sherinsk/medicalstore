@@ -1,0 +1,9 @@
+   "version": 2,
+   "name": "todo-withapi",
+   "builds": [
+      { "src": "app.js", "use": "@vercel/node" }
+   ],
+   "routes": [
+      { "src": "/(.*)", "dest": "/app.js" }
+   ]
+}
